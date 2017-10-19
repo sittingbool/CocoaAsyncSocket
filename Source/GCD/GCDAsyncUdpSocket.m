@@ -373,6 +373,11 @@ enum GCDAsyncUdpSocketConfig
 			#if !OS_OBJECT_USE_OBJC
 			dispatch_retain(delegateQueue);
 			#endif
+		} else {
+			delegateQueue = dispatch_get_main_queue();
+			#if !OS_OBJECT_USE_OBJC
+			dispatch_retain(delegateQueue);
+			#endif
 		}
 		
 		max4ReceiveSize = 65535;
